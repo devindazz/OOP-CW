@@ -8,7 +8,7 @@ public class Customer implements Runnable {
 
     public Customer(int retrievalInterval) {
         this.id = new Random().nextInt(100000);
-        this.retrievalInterval = retrievalInterval;
+        setRetrievalInterval(retrievalInterval);;
     }
 
     @Override
@@ -18,8 +18,7 @@ public class Customer implements Runnable {
                 continue;
             }
             try {
-                System.out.printf("Removing ticket from the TicketPool by customer %d %n කැරි පකයා!!!", this.id);
-                System.out.println("සුබ මංගලම්! ❤️🕊️");
+                System.out.printf("Buying ticket from the TicketPool by customer %d%n", this.id);
                 TicketPool.getInstance().removeTicket(this.getId());
                 Thread.sleep(retrievalInterval);
             } catch (InterruptedException e) {
@@ -37,6 +36,10 @@ public class Customer implements Runnable {
     }
 
     public void setRetrievalInterval(int retrievalInterval) {
-        this.retrievalInterval = retrievalInterval;
+        if (retrievalInterval > 0) {
+            this.retrievalInterval = retrievalInterval;
+        } else {
+            throw new IllegalArgumentException("Retrieval interval must be greater than 0.");
+        }
     }
 }

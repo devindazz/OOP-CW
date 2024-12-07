@@ -19,4 +19,9 @@ public class Ticket {
         return vendorId;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Ticket{id=%s, vendorId=%d}", id, vendorId);
+    }
+
 }

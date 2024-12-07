@@ -3,13 +3,13 @@ package com.oop_cw.backend;
 import java.util.Random;
 
 public class Vendor implements Runnable {
-    private int id;
+    private final int id;
     private int ticketPerRelease;
     private int releaseInterval;
 
-    public Vendor(int releaseInterval) {
+    public Vendor(int ticketPerRelease, int releaseInterval) {
         this.id = new Random().nextInt(100000);
-        this.ticketPerRelease = Configuration.getInstance().getTicketReleaseRate();
+        this.ticketPerRelease = ticketPerRelease;
         this.releaseInterval = releaseInterval;
     }
 

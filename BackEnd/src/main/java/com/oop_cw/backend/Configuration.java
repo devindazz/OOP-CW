@@ -22,7 +22,11 @@ public class Configuration {
     }
 
     public void setTotalTickets(int totalTickets) {
-        this.totalTickets = totalTickets;
+        if (totalTickets > 0) {
+            this.totalTickets = totalTickets;
+        } else {
+            throw new IllegalArgumentException("Total tickets must be greater than 0.");
+        }
     }
 
     public int getTicketReleaseRate() {
@@ -30,7 +34,11 @@ public class Configuration {
     }
 
     public void setTicketReleaseRate(int ticketReleaseRate) {
-        this.ticketReleaseRate = ticketReleaseRate;
+        if (ticketReleaseRate > 0) {
+            this.ticketReleaseRate = ticketReleaseRate;
+        } else {
+            throw new IllegalArgumentException("Ticket release rate must be greater than 0.");
+        }
     }
 
     public int getCustomerRetievalRate() {
@@ -38,7 +46,11 @@ public class Configuration {
     }
 
     public void setCustomerRetrievalRate(int customerRetrievalRate) {
-        this.customerRetrievalRate = customerRetrievalRate;
+        if (customerRetrievalRate > 0) {
+            this.customerRetrievalRate = customerRetrievalRate;
+        } else {
+            throw new IllegalArgumentException("Customer retrieval rate must be greater than 0.");
+        }
     }
 
     public int getMaxTicketCapacity() {
@@ -46,8 +58,13 @@ public class Configuration {
     }
 
     public void setMaxTicketCapacity(int maxTicketCapacity) {
-        this.maxTicketCapacity = maxTicketCapacity;
+        if (maxTicketCapacity > 0) {
+            this.maxTicketCapacity = maxTicketCapacity;
+        } else {
+            throw new IllegalArgumentException("Max ticket capacity must be greater than 0.");
+        }
     }
+
 
     public boolean getIsRunning() {
         return isRunning;
