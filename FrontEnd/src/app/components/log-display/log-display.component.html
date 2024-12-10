@@ -1,1 +1,22 @@
-<p>log-display works!</p>
+<div class="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div class="max-w-lg w-full p-8 bg-white rounded-lg shadow-lg border border-gray-300">
+        <h2 class="text-lg font-bold text-gray-900 mb-6 text-center">Log Display</h2>
+
+        <div *ngIf="logs.length > 0; else noLogs">
+            <div 
+                *ngFor="let log of logs" 
+                class="mb-4 p-4 border border-gray-300 rounded-lg bg-gray-50">
+                <p class="text-sm text-gray-700">
+                    <span class="font-medium">Vendor ID:</span> {{ log.vendorId }}
+                </p>
+                <p class="text-sm text-gray-700">
+                    <span class="font-medium">ID:</span> {{ log.id }}
+                </p>
+            </div>
+        </div>
+
+        <ng-template #noLogs>
+            <p class="text-gray-500 italic text-center">No logs available.</p>
+        </ng-template>
+    </div>
+</div>

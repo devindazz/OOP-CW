@@ -1,5 +1,8 @@
 package com.oop_cw.backend;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Random;
 
 public class Customer implements Runnable {
@@ -8,8 +11,11 @@ public class Customer implements Runnable {
 
     public Customer(int retrievalInterval) {
         this.id = new Random().nextInt(100000);
-        setRetrievalInterval(retrievalInterval);;
+        setRetrievalInterval(retrievalInterval);
+        ;
     }
+
+    Logger log = LoggerFactory.getLogger(Customer.class);
 
     @Override
     public void run() {
@@ -19,6 +25,7 @@ public class Customer implements Runnable {
             }
             try {
                 System.out.printf("Buying ticket from the TicketPool by customer %d%n", this.id);
+                log.info("Buying ticket from the TicketPool by customer {}", this.id);
                 TicketPool.getInstance().removeTicket(this.getId());
                 Thread.sleep(retrievalInterval);
             } catch (InterruptedException e) {

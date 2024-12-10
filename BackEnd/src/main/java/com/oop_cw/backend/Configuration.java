@@ -7,8 +7,9 @@ public class Configuration {
     private int customerRetrievalRate = 2;
     private int maxTicketCapacity = 10;
     private boolean isRunning = true;
-    
-    private Configuration() {}
+
+    private Configuration() {
+    }
 
     public static Configuration getInstance() {
         if (instance == null) {
@@ -16,6 +17,7 @@ public class Configuration {
         }
         return instance;
     }
+
 
     public int getTotalTickets() {
         return totalTickets;
@@ -65,13 +67,11 @@ public class Configuration {
         }
     }
 
-
     public boolean getIsRunning() {
         return isRunning;
     }
 
-    public void setIsRunning(boolean isRunning){
+    public void setIsRunning(boolean isRunning) {
         this.isRunning = isRunning;
     }
 }
-

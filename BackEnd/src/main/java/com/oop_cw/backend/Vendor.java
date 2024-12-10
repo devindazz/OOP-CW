@@ -13,6 +13,7 @@ public class Vendor implements Runnable {
         this.releaseInterval = releaseInterval;
     }
 
+
     @Override
     public void run() {
         while (true) {
@@ -25,14 +26,13 @@ public class Vendor implements Runnable {
             }
             try {
                 Thread.sleep(releaseInterval);
-            } 
-            catch (InterruptedException e) {
+            } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 e.printStackTrace();
             }
-            
-        } 
-    } 
+
+        }
+    }
 
     public int getId() {
         return id;
@@ -45,7 +45,7 @@ public class Vendor implements Runnable {
     public void setTicketPerRelease(int ticketPerRelease) {
         this.ticketPerRelease = ticketPerRelease;
     }
-    
+
     public int getReleaseInterval() {
         return releaseInterval;
     }
@@ -53,5 +53,5 @@ public class Vendor implements Runnable {
     public void setReleaseInterval(int releaseInterval) {
         this.releaseInterval = releaseInterval;
     }
-    
+
 }
