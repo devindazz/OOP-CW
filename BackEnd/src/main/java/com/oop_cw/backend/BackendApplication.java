@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.apache.commons.logging.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @SpringBootApplication
 @RestController
@@ -25,13 +28,20 @@ public class BackendApplication {
 	private final Map<Integer, Vendor> vendors = new HashMap<>();
 	private final Map<Integer, Customer> customers = new HashMap<>();
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
 
 		Logger log = LoggerFactory.getLogger(BackendApplication.class);
 		log.info("Starting Backend Application");
 	}
 
+	
+	@GetMapping("/logs")
+    @ResponseStatus(code = HttpStatus.OK)
+    public List<String> getLogs() {
+        return LogManager.getInstance().getLogs();
+    }
+	
 	@GetMapping("/vendors")
 	@ResponseStatus(code = HttpStatus.OK)
 	public List<Vendor> getVendors() {

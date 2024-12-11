@@ -24,7 +24,8 @@ public class Customer implements Runnable {
                 continue;
             }
             try {
-                System.out.printf("Buying ticket from the TicketPool by customer %d%n", this.id);
+                // System.out.printf("Buying ticket from the TicketPool by customer %d%n", this.id);
+                LogManager.getInstance().addLog(String.format("Buying ticket from the TicketPool %d", this.id));
                 log.info("Buying ticket from the TicketPool by customer {}", this.id);
                 TicketPool.getInstance().removeTicket(this.getId());
                 Thread.sleep(retrievalInterval);

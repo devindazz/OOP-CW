@@ -27,11 +27,19 @@ export class AddCustomerComponent {
       .post('/customers' , customerData)
       .then((Response) => {
         console.log('Customer added successfully' , Response);
+        this.customer = { retrievalInterval: 0};
         this.router.navigate(['/']);
       })
 
       .catch((error) => {
+        alert('Failed to add customer. Please try again.');
         console.error('Error adding customer', error);
       })
+
+      if (this.customer.retrievalInterval <= 0) {
+        alert('Retrieval interval must be greater than 0.');
+        return;
+      }
+      
   }
 }

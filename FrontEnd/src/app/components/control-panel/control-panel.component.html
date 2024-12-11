@@ -4,18 +4,19 @@
 
         <div class="flex justify-center space-x-6 mb-6">
             <button 
-                class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-3 px-12 rounded-md focus:outline-none active:bg-blue-800">
+                class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-3 px-12 rounded-md focus:outline-none active:bg-blue-800"
+                (click)="onStart()">
                 Start
             </button>
             <button 
-                class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-3 px-12 rounded-md focus:outline-none active:bg-red-800">
+                class="bg-gray-700 hover:bg-gray-900 text-white font-bold py-3 px-12 rounded-md focus:outline-none active:bg-red-800"
+                (click)="onStop()">
                 Stop
             </button>
         </div>
 
-        <div class="mt-4 text-center text-gray-700 italic" id="statusMessage">
-            <!-- The message will be displayed here after button press -->
-            <!-- Example message: "System started" or "System stopped" -->
+        <div class="mt-4 text-center text-gray-700 italic">
+            {{ statusMessage}}
         </div>
     </div>
 </div>

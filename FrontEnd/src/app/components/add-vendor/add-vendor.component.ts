@@ -30,10 +30,16 @@ export class AddVendorComponent {
       .post('/vendors', vendorData)
       .then((response) => {
         console.log('Vendor added successfully', response);
+        this.vendor = { releaseInterval: 0, ticketPerRelease: 0};
         this.router.navigate(['/']);
       })
       .catch((error) => {
+        alert('Error adding vendor.Please try again.')
         console.error('Error adding vendor', error);
       });
+
+      if(this.vendor.releaseInterval <= 0 || this.vendor.ticketPerRelease <= 0) {
+        alert('Release interval and tickets per release must be greater than 0')
+      }
   }
 }

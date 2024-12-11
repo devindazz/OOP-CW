@@ -1,10 +1,13 @@
 <div class="min-h-dvh bg-gray-100 flex items-center justify-center">
     <form class="max-w-lg w-full p-8 bg-white rounded-lg shadow-lg border border-gray-300">
+
         <div class="mb-6">
             <label for="totalTickets" class="block mb-2 text-sm font-medium text-gray-900">Total Tickets</label>
             <input 
                 type="number" 
-                id="totalTickets" 
+                name="totalTickets"
+                id="totalTickets"
+                [(ngModel)]="configuration.totalTickets"
                 inputmode="numeric" 
                 pattern="[0-9]*" 
                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" 
@@ -17,6 +20,8 @@
             <input 
                 type="number" 
                 id="ticketReleaseRate" 
+                name="ticketReleaseRate"
+                [(ngModel)]="configuration.ticketReleaseRate"
                 inputmode="numeric" 
                 pattern="[0-9]*" 
                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" 
@@ -29,6 +34,8 @@
             <input 
                 type="number" 
                 id="customerRetrievalRate" 
+                name="customerRetrievalRate"
+                [(ngModel)]="configuration.customerRetrievalRate"
                 inputmode="numeric" 
                 pattern="[0-9]*" 
                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" 
@@ -41,6 +48,8 @@
             <input 
                 type="number" 
                 id="maxTicketCapacity" 
+                name="maxTicketCapacity"
+                [(ngModel)]="configuration.maxTicketCapacity"
                 inputmode="numeric" 
                 pattern="[0-9]*" 
                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3" 
@@ -48,7 +57,7 @@
                 required />
         </div>
 
-        <button type="submit" class="w-full text-white bg-gray-700 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3 text-center">
+        <button type="submit" (click)="onSubmit()" class="w-full text-white bg-gray-700 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3 text-center">
             Submit
         </button>
     </form>
