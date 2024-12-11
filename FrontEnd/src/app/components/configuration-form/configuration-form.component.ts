@@ -35,6 +35,13 @@ export class ConfigurationFormComponent {
         alert('Failed to update configuration. Please try again.');
       });
   }
+
+  onCancel() {
+    this.configuration.totalTickets = 0;
+    this.configuration.ticketReleaseRate = 0;
+    this.configuration.customerRetrievalRate = 0;
+    this.configuration.maxTicketCapacity = 0;
+  }
 }
 
 

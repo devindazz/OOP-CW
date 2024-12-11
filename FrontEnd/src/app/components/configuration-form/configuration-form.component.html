@@ -57,8 +57,21 @@
                 required />
         </div>
 
-        <button type="submit" (click)="onSubmit()" class="w-full text-white bg-gray-700 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-3 text-center">
-            Submit
-        </button>
+        <div class="flex justify-between">
+            <button 
+                type="submit" 
+                (click)="onCancel()" 
+                class="w-1/2 text-gray-700 bg-gray-300 hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-6 py-3 text-center mr-2">
+                Cancel
+            </button>
+
+            <button 
+                type="button" 
+                (click)="onSubmit()" 
+                class="w-1/2 text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-6 py-3 text-center ml-2">
+                Confirm
+            </button>
+
+        </div>
     </form>
 </div>

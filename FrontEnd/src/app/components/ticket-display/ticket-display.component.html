@@ -1,11 +1,18 @@
 <div class="min-h-dvh bg-gray-100 flex items-center justify-center">
     <div class="max-w-lg w-full p-8 bg-white rounded-lg shadow-lg border border-gray-300">
-      <h2 class="text-lg font-bold text-gray-900 mb-6 text-center">Available Tickets</h2>
-      
-        <div *ngFor="let ticket of tickets" class="mb-4 p-4 border border-gray-300 rounded-lg bg-gray-50">
-          <p class="text-sm text-gray-700"><span class="font-medium">Ticket ID:</span> {{ ticket.id }}</p>
-          <p class="text-sm text-gray-700"><span class="font-medium">Vendor ID:</span> {{ ticket.vendorId }}</p>
-        </div>
+      <h2 class="text-lg font-bold text-gray-950 mb-6 text-center">Available Tickets</h2>
+
+      <div *ngIf="tickets && tickets.length > 0; else noTicketsMessage">
+          <div *ngFor="let ticket of tickets" class="mb-4 p-4 border border-gray-300 rounded-lg bg-gray-50">
+            <p class="text-sm text-gray-700"><span class="font-medium">Ticket ID:</span> {{ ticket.id }}</p>
+            <p class="text-sm text-gray-700"><span class="font-medium">Vendor ID:</span> {{ ticket.vendorId }}</p>
+          </div>
+      </div>
+
+      <ng-template #noTicketsMessage>
+        <p class="text-gray-500 italic text-center">No tickets available.</p>
+      </ng-template>
+
     </div>
-  </div>
+</div>
   

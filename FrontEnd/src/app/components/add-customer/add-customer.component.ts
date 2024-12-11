@@ -42,4 +42,8 @@ export class AddCustomerComponent {
       }
       
   }
+
+  onCancel() {
+    this.customer.retrievalInterval = 0;
+  }
 }

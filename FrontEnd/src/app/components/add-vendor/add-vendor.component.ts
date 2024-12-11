@@ -42,4 +42,10 @@ export class AddVendorComponent {
         alert('Release interval and tickets per release must be greater than 0')
       }
   }
+
+  onCancel() {
+    this.vendor.releaseInterval = 0;
+    this.vendor.ticketPerRelease = 0; 
+}
+
 }
