@@ -25,7 +25,7 @@ public class TicketPool {
 
     public synchronized void addTicket(Ticket ticket) {
         if (tickets.size() >= Configuration.getInstance().getMaxTicketCapacity()) {
-            LogManager.getInstance().addLog(String.format("Ticket pool is full. Cannot add ticket %s. Vendor %d is waiting.%n", ticket.getId(), ticket.getVendorId()));
+            LogManager.getInstance().addLog(String.format("Ticket pool is full. Cannot add ticket %s. Vendor %d is waiting.", ticket.getId(), ticket.getVendorId()));
             log.info("Ticket pool is full. Cannot add ticket {}. Vendor {} is waiting.",ticket.getId(),ticket.getVendorId());
             try {
                 wait();
@@ -40,7 +40,7 @@ public class TicketPool {
                 Thread.currentThread().interrupt();
                 e.printStackTrace();
             }
-            LogManager.getInstance().addLog(String.format("Adding ticket: %d by vendor: %d %n", ticket.getId(), ticket.getVendorId()));
+            LogManager.getInstance().addLog(String.format("Adding ticket: %d by vendor: %d", ticket.getId(), ticket.getVendorId()));
             log.info("Adding ticket: {} by vendor: {}", ticket.getId(), ticket.getVendorId());
             tickets.add(ticket);
             notifyAll();
