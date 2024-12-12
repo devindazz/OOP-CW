@@ -1,6 +1,7 @@
 package com.oop_cw.backend;
 
 public class Configuration {
+    // Singleton instance of the Configuration class
     private static Configuration instance;
     private int totalTickets = 100;
     private int ticketReleaseRate = 2;
@@ -10,7 +11,7 @@ public class Configuration {
 
     private Configuration() {
     }
-
+    // Singleton pattern - get the single instance of Configuration
     public static Configuration getInstance() {
         if (instance == null) {
             instance = new Configuration();

@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.apache.commons.logging.Log;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @SpringBootApplication
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200") // Enable CORS for the Angular frontend
 public class BackendApplication {
 
 	private final Map<Integer, Vendor> vendors = new HashMap<>();
@@ -53,6 +53,7 @@ public class BackendApplication {
 	public String addVendor(@RequestBody HashMap<String, Object> request) {
 		int releaseInterval;
 		int ticketPerRelease;
+
 		if (request.containsKey("release_interval")) {
 			releaseInterval = (int) request.get("release_interval");
 		} else {

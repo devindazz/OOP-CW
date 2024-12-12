@@ -13,20 +13,24 @@ public class Vendor implements Runnable {
         this.releaseInterval = releaseInterval;
     }
 
-
+    // The run method defines the behavior of the vendor thread.
     @Override
     public void run() {
         while (true) {
+             // Check if the system is running; if not, skip releasing tickets
             if (!Configuration.getInstance().getIsRunning()) {
                 continue;
             }
+            // Release tickets according to the ticketPerRelease value
             for (int i = 0; i < ticketPerRelease; i++) {
                 Ticket ticket = new Ticket(this.id);
+                 // Add the ticket to the TicketPool (synchronized block in TicketPool handles concurrency)
                 TicketPool.getInstance().addTicket(ticket);
             }
             try {
                 Thread.sleep(releaseInterval);
             } catch (InterruptedException e) {
+                // If the thread is interrupted, handle the exception and reset interrupt status
                 Thread.currentThread().interrupt();
                 e.printStackTrace();
             }
